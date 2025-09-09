@@ -1,32 +1,17 @@
-@@ -0,0 +1,31 @@
-import tsParser from "@typescript-eslint/parser";
-import tsPlugin from "@typescript-eslint/eslint-plugin";
-import tsdocPlugin from "eslint-plugin-tsdoc";
+@@ -162,11 +162,11 @@ export interface SkinViewerOptions {
+	 * @defaultValue If unspecified, the ears will be invisible.
+	 */
+	ears?:
+	| "current-skin"
+	| {
+		textureType: "standalone" | "skin";
+		source: RemoteImage | TextureSource;
+	};
+		| "current-skin"
+		| {
+				textureType: "standalone" | "skin";
+				source: RemoteImage | TextureSource;
+		  };
 
-export default [
-	{
-		ignores: ["dist/**/*"],
-	},
-	{
-		files: ["**/*.ts"],
-		languageOptions: {
-			parser: tsParser,
-			parserOptions: {
-				ecmaVersion: "latest",
-				sourceType: "module",
-			},
-		},
-		plugins: {
-			"@typescript-eslint": tsPlugin,
-			tsdoc: tsdocPlugin,
-		},
-		rules: {
-			indent: ["error", "tab"],
-			"no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
-			"@typescript-eslint/no-inferrable-types": "off",
-			"@typescript-eslint/no-empty-interface": "off",
-			"@typescript-eslint/no-non-null-assertion": "warn",
-			"tsdoc/syntax": "warn",
-		},
-	},
-];
+	/**
+	 * Whether to preserve the buffers until manually cleared or overwritten.
